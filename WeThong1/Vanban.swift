@@ -19,13 +19,13 @@ class Vanban: NSObject {
     
     init(id:Int64,ten:String,loai:Loaivanban,so:String,nam:String,ma:String,coquanbanhanh:Coquanbanhanh,noidung:String) {
         self.id=id
-        self.ten=ten
+        self.ten=String(describing: ten.trimmingCharacters(in: .whitespacesAndNewlines))
         self.loai=loai
-        self.so=so
-        self.nam=nam
-        self.ma=ma
+        self.so=String(describing: so.trimmingCharacters(in: .whitespacesAndNewlines))
+        self.nam=String(describing: nam.trimmingCharacters(in: .whitespacesAndNewlines))
+        self.ma=String(describing: ma.trimmingCharacters(in: .whitespacesAndNewlines))
         self.coquanbanhanh=coquanbanhanh
-        self.noidung=noidung
+        self.noidung=String(describing: noidung.trimmingCharacters(in: .whitespacesAndNewlines))
     }
     
     func getId() -> Int64 {
@@ -41,7 +41,7 @@ class Vanban: NSObject {
     }
     
     func setSo(so:String) {
-        self.so=so
+        self.so=String(describing: so.trimmingCharacters(in: .whitespacesAndNewlines))
     }
     
     func getTen() -> String {
@@ -49,7 +49,7 @@ class Vanban: NSObject {
     }
     
     func setTen(ten:String) {
-        self.ten=ten
+        self.ten=String(describing: ten.trimmingCharacters(in: .whitespacesAndNewlines))
     }
     
     func getNoidung() -> String {
@@ -57,7 +57,7 @@ class Vanban: NSObject {
     }
     
     func setNoidung(noidung:String) {
-        self.noidung=noidung
+        self.noidung=String(describing: noidung.trimmingCharacters(in: .whitespacesAndNewlines))
     }
     
     func getNam() -> String {
@@ -65,7 +65,7 @@ class Vanban: NSObject {
     }
     
     func setNam(nam:String) {
-        self.nam=nam
+        self.nam=String(describing: nam.trimmingCharacters(in: .whitespacesAndNewlines))
     }
     
     func getLoai() -> Loaivanban {
@@ -89,6 +89,6 @@ class Vanban: NSObject {
     }
     
     func setma(ma:String) {
-        self.ma=ma
+        self.ma=String(describing: ma.trimmingCharacters(in: .whitespacesAndNewlines))
     }
 }

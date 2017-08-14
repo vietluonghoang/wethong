@@ -13,7 +13,7 @@ class Coquanbanhanh: NSObject {
     
     init(id:Int64,ten:String) {
         self.id=id
-        self.ten=ten
+        self.ten=String(describing: ten.trimmingCharacters(in: .whitespacesAndNewlines))
     }
     
     func getId() -> Int64 {
@@ -29,7 +29,7 @@ class Coquanbanhanh: NSObject {
     }
     
     func setTen(ten:String) {
-        self.ten=ten
+        self.ten=String(describing: ten.trimmingCharacters(in: .whitespacesAndNewlines))
     }
     
 }

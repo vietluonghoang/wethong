@@ -37,7 +37,7 @@ class DieukhoanListViewController: UIViewController, UITableViewDelegate, UITabl
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     func initSearch() {
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
@@ -51,13 +51,7 @@ class DieukhoanListViewController: UIViewController, UITableViewDelegate, UITabl
     
     func search(keyword:String) -> [Dieukhoan]{
         var rs:[Dieukhoan]
-        //        rs=Query.selectAllDieukhoan()
         rs=Query.searchDieukhoan(keyword: "\(keyword)")
-        //        lblKetqua.text = "Có \(rs.count) kết quả cho từ khoá \(keyword)"
-//        for r in rs {
-//            print(r.getTieude())
-//            //            lblResultId.text="\(r.getId())";
-//        }
         return rs
     }
     
@@ -79,8 +73,8 @@ class DieukhoanListViewController: UIViewController, UITableViewDelegate, UITabl
         
         switch(segue.identifier ?? "") {
             
-        case "AddItem":
-            os_log("Adding a new meal.", log: OSLog.default, type: .debug)
+//        case "AddItem":
+//            os_log("Adding a new meal.", log: OSLog.default, type: .debug)
             
         case "showDieukhoan":
             guard let dieukhoanDetails = segue.destination as? DieukhoanDetailsViewController else {
@@ -97,22 +91,22 @@ class DieukhoanListViewController: UIViewController, UITableViewDelegate, UITabl
             
             let selectedDieukhoan = dieukhoanList[indexPath.row]
             dieukhoanDetails.updateDetails(dieukhoan: selectedDieukhoan)
-        case "viewImages":
-            guard let imageViews = segue.destination as? ImageViewController else {
-                fatalError("Unexpected destination: \(segue.destination)")
-            }
-            
-            guard let selectedDieukhoanCell = sender as? DieukhoanTableViewCell else {
-                fatalError("Unexpected sender: \(String(describing: sender))")
-            }
-            
-            guard let indexPath = tblView.indexPath(for: selectedDieukhoanCell) else {
-                fatalError("The selected cell is not being displayed by the table")
-            }
-            
-            let images:[String] = ["QC41-Hinh_33","QC41-Hinh_33","QC41-Hinh_33","QC41-Hinh_33","QC41-Hinh_33","QC41-Hinh_33"]
-            
-            imageViews.updateImages(images: images)
+//        case "viewImages":
+//            guard let imageViews = segue.destination as? ImageViewController else {
+//                fatalError("Unexpected destination: \(segue.destination)")
+//            }
+//            
+//            guard let selectedDieukhoanCell = sender as? DieukhoanTableViewCell else {
+//                fatalError("Unexpected sender: \(String(describing: sender))")
+//            }
+//            
+//            guard let indexPath = tblView.indexPath(for: selectedDieukhoanCell) else {
+//                fatalError("The selected cell is not being displayed by the table")
+//            }
+//            
+//            let images:[String] = ["QC41-Hinh_33","QC41-Hinh_33","QC41-Hinh_33","QC41-Hinh_33","QC41-Hinh_33","QC41-Hinh_33"]
+//            
+//            imageViews.updateImages(images: images)
             
         default:
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")

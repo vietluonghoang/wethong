@@ -29,13 +29,13 @@ class Dieukhoan: NSObject {
     
     init(id:Int64,so:String,tieude:String,noidung:String,minhhoa:String,cha:Int64,vanban:Vanban) {
         self.id=id
-        self.so=so
-        self.tieude=tieude
-        self.noidung=noidung
+        self.so=String(describing: so.trimmingCharacters(in: .whitespacesAndNewlines))
+        self.tieude=String(describing: tieude.trimmingCharacters(in: .whitespacesAndNewlines))
+        self.noidung=String(describing: noidung.trimmingCharacters(in: .whitespacesAndNewlines))
         self.cha=cha
         self.vanban=vanban
         for mh in minhhoa.components(separatedBy: ";") {
-            self.minhhoa.append(mh)
+            self.minhhoa.append(String(describing: mh.trimmingCharacters(in: .whitespacesAndNewlines)))
         }
     }
     
@@ -61,7 +61,7 @@ class Dieukhoan: NSObject {
     }
     
     func setSo(so:String) {
-        self.so=so
+        self.so=String(describing: so.trimmingCharacters(in: .whitespacesAndNewlines))
     }
     
     func getTieude() -> String {
@@ -69,7 +69,7 @@ class Dieukhoan: NSObject {
     }
     
     func setTieude(tieude:String) {
-        self.tieude=tieude
+        self.tieude=String(describing: tieude.trimmingCharacters(in: .whitespacesAndNewlines))
     }
     
     func getNoidung() -> String {
@@ -77,7 +77,7 @@ class Dieukhoan: NSObject {
     }
     
     func setNoidung(noidung:String) {
-        self.noidung=noidung
+        self.noidung=String(describing: noidung.trimmingCharacters(in: .whitespacesAndNewlines))
     }
     
     func getMinhhoa() -> [String] {
@@ -89,7 +89,7 @@ class Dieukhoan: NSObject {
     }
     
     func addMinhhoa(minhhoa:String) {
-        self.minhhoa.append(minhhoa)
+        self.minhhoa.append(String(describing: minhhoa.trimmingCharacters(in: .whitespacesAndNewlines)))
     }
     
     func getCha() -> Int64 {
